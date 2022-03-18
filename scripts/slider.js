@@ -2,20 +2,20 @@
   let multiItemSlider = (function() {
       return function(selector, config) {
           let
-              _mainElement = document.querySelector(selector),
-              _sliderWrapper = _mainElement.querySelector('.slider__wrapper'),
-              _sliderItems = _mainElement.querySelectorAll('.slider__item'),
-              _sliderControls = _mainElement.querySelectorAll('.slider__control'),
-              _sliderControlLeft = _mainElement.querySelector('.slider__control_left'),
-              _sliderControlRight = _mainElement.querySelector('.slider__control_right'),
-              _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width),
-              _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width),
-              _positionLeftItem = 0,
-              _transform = 0,
-              _step = _itemWidth / _wrapperWidth * 100,
-              _items = [];
+              _mainElement = document.querySelector(selector), // основный элемент блока
+              _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), // обертка для .slider-item
+              _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
+              _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
+              _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
+              _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
+              _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
+              _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
+              _positionLeftItem = 0, // позиция левого активного элемента
+              _transform = 0, // значение транфсофрмации .slider_wrapper
+              _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
+              _items = []; // массив элементов
 
-
+          // наполнение массива _items
           _sliderItems.forEach(function(item, index) {
               _items.push({ item: item, position: index, transform: 0 });
           });
@@ -72,7 +72,7 @@
               _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
           }
 
-
+          // обработчик события click для кнопок "назад" и "вперед"
           let _controlClick = function(e) {
               if (e.target.classList.contains('slider__control')) {
                   e.preventDefault();
@@ -82,19 +82,20 @@
           };
 
           let _setUpListeners = function() {
+              // добавление к кнопкам "назад" и "вперед" обрботчика _controlClick для событя click
               _sliderControls.forEach(function(item) {
                   item.addEventListener('click', _controlClick);
               });
           }
 
-
+          // инициализация
           _setUpListeners();
 
           return {
-              right: function() {
+              right: function() { // метод right
                   _transformItem('right');
               },
-              left: function() {
+              left: function() { // метод left
                   _transformItem('left');
               }
           }
