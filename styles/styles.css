@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cuprum&display=swap');
 body {
-    background: #1F1F1F;
+    background: url(../icons/pngwing.com.png) repeat-y, #202020;
+    background-size: 100%;
 }
 
 .button {
@@ -58,7 +59,7 @@ body {
 
 .jazz__main {
     height: 50vw;
-    background: center / cover no-repeat url(../images/jazz.png), linear-gradient(246.03deg, #FF002E 0.99%, #47068E 95.65%);
+    background: center / cover no-repeat url(../images/jazz.png), linear-gradient(245deg, #FF002E 0.99%, #47068E 95.65%);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -67,18 +68,19 @@ body {
 }
 
 .live__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    font-size: 1.4vw;
-    font-stretch: initial;
-    background: left 5% center url(../icons/live.png) no-repeat, rgba(255, 255, 255, 0.04);
-    border: 1px solid #FFFFFF;
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid #fff2ee;
     backdrop-filter: blur(11px);
     border-radius: 150px;
     margin-left: 20vw;
-    line-height: 1px;
-    background-position: 8%;
-    background-size: 15%;
-    text-transform: uppercase;
+    height: 4vw;
+    animation-name: live;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
 .butext {
@@ -126,7 +128,7 @@ body {
 }
 
 .title {
-    margin: 70px;
+    margin: 3.6vw;
     flex-wrap: wrap;
 }
 
@@ -134,11 +136,12 @@ body {
     font-family: Cuprum;
     font-style: normal;
     font-weight: normal;
-    font-size: 144px;
-    line-height: 121px;
+    font-size: 7.3vw;
+    line-height: 6.3vw;
     text-transform: uppercase;
     background: linear-gradient(246.03deg, #FF002E 0.99%, #47068E 95.65%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
     color: #FFFFFF;
@@ -257,11 +260,13 @@ body {
 }
 
 .day {
-    width: 209px;
-    height: 350px;
+    max-width: 210px;
+    max-height: 350px;
     margin-top: 10px;
+    margin-bottom: 30px;
     margin-right: 100px;
     display: flex;
+    position: relative;
     justify-content: space-between;
     flex-direction: column;
     border-radius: 7px;
@@ -276,10 +281,11 @@ body {
 }
 
 .day>img {
-    width: 209px;
-    height: 323px;
+    width: 210px;
+    height: 320px;
     border-start-end-radius: 7px;
     border-start-start-radius: 7px;
+    margin-bottom: 5px;
 }
 
 .date {
@@ -344,17 +350,6 @@ body {
 .member:hover {
     transform: scale(105%);
 }
-
-
-/* .member::before {
-    content: "";
-    background: linear-gradient(90deg, #FF0000 , rgba(66, 0, 255, 0.08)), #1F1F3F;
-    position: absolute;
-    height: 65%;
-    width: 15%;
-    z-index: -1;
-    filter: blur(20px);
-  } */
 
 .member__img {
     width: 209px;
